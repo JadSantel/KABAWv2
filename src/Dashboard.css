@@ -1,12 +1,13 @@
-/* Dashboard.css - Simple Light Mode Redesign */
+/* Dashboard.css - Premium Dark Glassmorphic Redesign */
 
 .earthkit-layout {
   display: flex;
   min-height: 100vh;
   width: 100vw;
-  background: #ffffff;
+  background: #0a0a0f;
+  background-image: radial-gradient(circle at 50% 0%, #1f2937 0%, transparent 70%);
   font-family: 'Inter', system-ui, sans-serif;
-  color: #1e293b;
+  color: #f8fafc;
 }
 
 .app-container {
@@ -16,20 +17,52 @@
   overflow: hidden;
 }
 
-/* Sidebar Specifics */
+/* Sidebar Specifics - Premium Glassmorphism */
 .sidebar {
   width: 260px;
-  background: #ffffff;
-  border-right: 1px solid #f1f5f9;
+  background: rgba(15, 15, 20, 0.65);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   padding: 24px 16px;
   flex-shrink: 0;
-  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #EDEDEF;
 }
 
 .sidebar-closed .sidebar {
-  margin-left: -292px;
+  width: 80px;
+  min-width: 80px;
+  padding: 24px 12px;
+  overflow-x: hidden;
+  margin-left: 0;
+}
+
+.sidebar-closed .sidebar .nav-label,
+.sidebar-closed .sidebar .user-block-info {
+  display: none;
+}
+
+.sidebar-closed .sidebar .logo-area {
+  justify-content: center;
+  padding: 0;
+}
+
+.sidebar-closed .sidebar .nav-links li {
+  justify-content: center;
+  padding: 12px;
+}
+
+.sidebar-closed .sidebar .upload-btn {
+  padding: 12px;
+}
+
+.sidebar-closed .sidebar .user-block {
+  justify-content: center;
+  padding: 0;
 }
 
 .sidebar .logo-area {
@@ -38,37 +71,40 @@
   gap: 12px;
   padding: 0 12px;
   margin-bottom: 32px;
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 800;
   font-size: 1.2rem;
 }
 .sidebar .logo-area img {
   height: 20px;
+  filter: brightness(0) invert(1); /* Make logo white for dark theme */
 }
 
 .sidebar .nav-links li {
   padding: 12px 16px;
   margin-bottom: 8px;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  color: #64748b;
+  color: #8A8F98;
   display: flex;
   align-items: center;
   gap: 16px;
   font-size: 0.95rem;
   font-weight: 600;
   transition: all 0.2s ease;
+  border-left: 3px solid transparent;
 }
 
 .sidebar .nav-links li:hover:not(.active) {
-  background: #f8fafc;
-  color: #1e293b;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
 }
 
 .sidebar .nav-links li.active {
-  background: #15803d;
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(21, 128, 61, 0.2);
+  border-left: 3px solid #10b981;
+  box-shadow: none;
 }
 
 .sidebar-bottom {
@@ -85,17 +121,19 @@
   gap: 12px;
   padding: 12px;
   border-radius: 12px;
-  background: #15803d;
+  background: linear-gradient(135deg, #10b981, #059669);
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: opacity 0.2s;
-  box-shadow: 0 4px 12px rgba(21, 128, 61, 0.2);
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 .upload-btn:hover {
-  opacity: 0.9;
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
+  transform: translateY(-1px);
 }
 
 .user-block {
@@ -108,11 +146,12 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64748b;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .user-block-info {
   display: flex;
@@ -121,11 +160,11 @@
 .user-block-info .name {
   font-weight: 700;
   font-size: 0.95rem;
-  color: #0f172a;
+  color: #ffffff;
 }
 .user-block-info .role {
   font-size: 0.8rem;
-  color: #64748b;
+  color: #8A8F98;
 }
 
 /* Main Content Specifics */
@@ -525,28 +564,26 @@
   color: #14532d;
 }
 
-/* Map Legend */
+/* Map Legend - Premium Dark Glass */
 .map-legend {
   position: absolute;
   bottom: 24px;
   right: 24px;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  font-family: inherit;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   width: 220px;
 }
 .map-legend h4 {
   margin: 0 0 10px 0;
-  font-size: 0.9rem;
-  color: #1e293b;
+  font-size: 0.95rem;
+  color: #ffffff;
   font-weight: 700;
-  letter-spacing: -0.02em;
 }
 .legend-gradient {
   height: 10px;
@@ -555,31 +592,29 @@
   /* NASA GIBS land surface temp approximation */
   background: linear-gradient(to right, #2563eb, #06b6d4, #fde047, #ea580c, #dc2626);
   margin-bottom: 6px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
 }
 .legend-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
-  color: #475569;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: #8A8F98;
+  font-weight: 600;
 }
 
-/* Layer Controls */
+/* Layer Controls - Premium Dark Glass */
 .layer-controls {
   position: absolute;
   top: 24px;
   right: 24px;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -587,8 +622,8 @@
 }
 .layer-controls h4 {
   margin: 0;
-  font-size: 0.9rem;
-  color: #1e293b;
+  font-size: 0.95rem;
+  color: #ffffff;
   font-weight: 700;
 }
 .layer-toggle {
@@ -596,12 +631,12 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  font-size: 0.85rem;
-  color: #334155;
-  font-weight: 600;
+  font-size: 0.9rem;
+  color: #8A8F98;
+  font-weight: 500;
 }
 .layer-toggle input[type="radio"] {
-  accent-color: #15803d;
+  accent-color: #10b981;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -624,6 +659,35 @@
   align-items: center;
 }
 
+/* =========================================
+   Sentinel-2 Map Filters & Animations
+========================================= */
+
+/* Tile Container wrapper */
+.map-wrapper .leaflet-tile-pane {
+  transition: filter 1s ease-in-out;
+}
+
+/* 1. NDVI (Agriculture) */
+.map-wrapper.ndvi .leaflet-tile-pane {
+  filter: contrast(1.4) saturate(2.5) hue-rotate(-10deg);
+}
+
+/* 2. SAR (Flood Radar) */
+.map-wrapper.sar .leaflet-tile-pane {
+  filter: grayscale(1) contrast(2) brightness(0.6);
+}
+
+/* 3. Infrared (Disaster) */
+.map-wrapper.infrared .leaflet-tile-pane {
+  animation: heatWaver 3s infinite alternate;
+}
+
+@keyframes heatWaver {
+  0% { filter: hue-rotate(270deg) saturate(2.5) contrast(1.2) brightness(0.9); }
+  100% { filter: hue-rotate(280deg) saturate(3) contrast(1.4) brightness(1); }
+}
+
 .marker-core {
   width: 16px;
   height: 16px;
@@ -634,6 +698,20 @@
   position: relative;
   z-index: 2;
   transition: transform 0.2s;
+}
+
+.map-wrapper {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix ugly gray flashing when map tiles are loading */
+.leaflet-container {
+  background: #0a0a0f !important;
+}
+
+.map-controls-group {
 }
 
 .marker-active .marker-core {
@@ -832,3 +910,9 @@
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
+.live-map-view {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}

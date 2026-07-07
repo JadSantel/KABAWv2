@@ -4,7 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>Kabaw Air Monitoring System</title>
+    <script>
+      window.addEventListener('error', function(e) {
+        fetch('http://localhost:9999/log', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ error: e.message, stack: e.error ? e.error.stack : '' })
+        }).catch(()=>console.log('Error server not running'));
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        fetch('http://localhost:9999/log', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ error: e.reason ? e.reason.message : 'Promise rejected', stack: e.reason ? e.reason.stack : '' })
+        }).catch(()=>console.log('Error server not running'));
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>

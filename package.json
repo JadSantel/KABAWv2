@@ -7,15 +7,18 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync-gfs": "node scripts/fetch-gfs.cjs && java -jar node_modules/@weacast/grib2json/bin/grib2json.jar -d -n -o public/wind-global.json scripts/gfs_wind.grib2"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.19.7",
     "@phosphor-icons/react": "^2.1.10",
     "animejs": "^3.2.2",
     "framer-motion": "^12.42.2",
     "jquery": "^4.0.0",
     "leaflet": "^1.9.4",
     "leaflet-velocity": "^2.1.4",
+    "lottie-react": "^2.4.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-leaflet": "^5.0.0",
@@ -26,6 +29,7 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
+    "@weacast/grib2json": "^2.3.1",
     "oxlint": "^1.71.0",
     "vite": "^8.1.1"
   }
